@@ -194,9 +194,7 @@ export class CatalogComponent {
     console.log(`Added ${product.name} to cart`);
   }
 
-  getImageUrl(product: IProduct) {
-    return `assets/images/robot-parts/${product.imageName}`;
-  }
+  
 
   getFilteredProducts() {
     return this.filter === ''

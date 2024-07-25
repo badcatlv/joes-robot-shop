@@ -1,0 +1,23 @@
+<div class="product">
+    <div class="product-details">
+      <img [src]="getImageUrl(product)" [alt]="product.name" />
+      <!-- above- using atribute binding and using a function from component to render image -->
+      <!-- <img src="{{ '/assets/images/robot-parts/' + product.imageName }}" [alt]="product.name" /> -->
+      <!-- above show interpolation {{}} vs attribute binding [] , note attribute binding creates a one way binding
+       from the component to the template, therefore cannot be used for input for example -->
+      <div class="product-info">
+        <div class="name">{{ product.name }}</div>
+        <div class="description">{{ product.description }}</div>
+        <div class="category">Part Type: {{ product.category }} </div>
+      </div>
+    </div>
+    <div class="price">
+      <!-- <div *ngIf="product.discount === 0">{{ product.price | currency }}</div>
+      <div *ngIf="product.discount > 0" class="discount"> -->
+        <div [ngClass]="{ strikethrough: product.discount > 0}">{{ product.price | currency: "USD" }}</div>
+      <div *ngIf="product.discount > 0" class="discount">
+        {{ (product.price * (1 - product.discount)) | currency }}
+      </div>
+      <button class="cta" (click)="buyButtonClicked(product)">Buy</button>
+    </div>
+  </div>
