@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="filters">
+      <a class="button">Heads</a>
+      <a class="button">Arms</a>
+      <a class="button">Torsos</a>
+      <a class="button">Bases</a>
+      <a class="button">All</a>
+    </div>
+  
+    <ul class="products">
+      <li class="product-item" *ngFor="let product of products">
+        <!-- creates a loop -->
+        <div class="product">
+          <div class="product-details">
+            <img [src]="getImageUrl(product)" [alt]="product.name" />
+            <!-- above- using atribute binding and using a function from component to render image -->
+            <!-- <img src="{{ '/assets/images/robot-parts/' + product.imageName }}" [alt]="product.name" /> -->
+            <!-- above show interpolation {{}} vs attribute binding [] , note attribute binding creates a one way binding
+             from the component to the template, therefore cannot be used for input for example -->
+            <div class="product-info">
+              <div class="name">{{ product.name }}</div>
+              <div class="description">{{ product.description }}</div>
+              <div class="category">Part Type: {{ product.category }} </div>
+            </div>
+          </div>
+          <div class="price">
+            <div>${{ product.price.toFixed(2) }}</div>
+            <button class="cta">Buy</button>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
