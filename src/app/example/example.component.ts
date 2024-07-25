@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   //metadata properties
+  //testing out commit and push
   selector: 'app-example', //this is the name of the component, used in other components, 
   //to change the prefix, change the prefix in angular.json, currently it is 'bot'
   templateUrl: './example.component.html', //this is the html file that will be used to render the component
