@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { IProduct } from './product.model';
-import { CartService } from '../cart.service';
+import { CartService } from '../cart/cart.service';
 
 @Component({
   selector: 'bot-catalog',
@@ -202,7 +202,7 @@ export class CatalogComponent {
   getFilteredProducts() {
     return this.filter === ''
       ? this.products
-      : this.products.filter((product) =>
+      : this.products.filter((product: any) =>
           product.category === this.filter 
         );
   }

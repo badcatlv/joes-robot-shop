@@ -1,10 +1,12 @@
 <div class="product">
     <div class="product-details">
       <img [src]="getImageUrl(product)" [alt]="product.name" />
+
       <!-- above- using atribute binding and using a function from component to render image -->
       <!-- <img src="{{ '/assets/images/robot-parts/' + product.imageName }}" [alt]="product.name" /> -->
       <!-- above show interpolation {{}} vs attribute binding [] , note attribute binding creates a one way binding
        from the component to the template, therefore cannot be used for input for example -->
+       
       <div class="product-info">
         <div class="name">{{ product.name }}</div>
         <div class="description">{{ product.description }}</div>

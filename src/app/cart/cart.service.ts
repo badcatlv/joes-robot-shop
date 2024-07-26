@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { IProduct } from './catalog/product.model';
-import { ILineItem } from './cart/line-item.model';
+import { IProduct } from '../catalog/product.model';
+import { ILineItem } from '../catalog/line-item.model';
 
 @Injectable({
   providedIn: 'root'
@@ -10,12 +10,12 @@ export class CartService {
 
   constructor() { }
 
-  getTotalPrice(): number {
+  getTotalPrice() {
     return (
       Math.round(
         this.cart.reduce<number>((prev, cur) => {
           return (
-            prev + cur.price * (cur.product.price * (1 - cur.product.discount))
+            prev + cur.quantity * (cur.product.price * (1 - cur.product.discount))
           );
         }, 0) * 100
           ) / 100
@@ -32,9 +32,13 @@ export class CartService {
       lineItem.quantity++;
     } else {
       lineItem = { product: product, quantity: 1 };
-      this.cart.push({ product, quantity: 1 });
+      this.cart.push(lineItem);
     }
+
+    console.log(`Added ${product.name} to cart`);
+    console.log(`Total price: ${this.getTotalPrice()}`);
   }
+  
 
   // cart: IProduct[] = [];  
 
