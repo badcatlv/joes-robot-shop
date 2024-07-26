@@ -14,10 +14,11 @@ export class CatalogComponent {
 
   constructor(
     private cartSvc: CartService,
-    private productSvc: ProductService
+    private productSvc: ProductService // Inject the ProductService, which is a service that fetches the product data
   ) { }
 
   ngOnInit() {
+    // Fetch the products from the ProductService, and store them in the products array, which is used to display the products
     this.productSvc.getProducts().subscribe((products) => {
       this.products = products;
     });
