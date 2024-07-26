@@ -25,8 +25,8 @@ export class CatalogComponent {
     this.productSvc.getProducts().subscribe((products) => {
       this.products = products;
     });
-    this.route.params.subscribe((params) => {
-      this.filter = params['filter'];
+    this.route.queryParams.subscribe((params) => {
+      this.filter = params['filter'] ?? '';
     }); // Subscribe to the route params, and update the filter property when the filter parameter changes
     //this.filter = this.route.snapshot.params['filter']; // Get the filter parameter from the route, note that this only works when the component is initialized
   }
