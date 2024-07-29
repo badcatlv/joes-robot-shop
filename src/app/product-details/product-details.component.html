@@ -9,6 +9,11 @@
   </div>
   <div class="price">
     <div [ngClass]="{ strikethrough: product.discount > 0 }">
+      <!-- The above is an example of ngClass binding -- pass to it an object, 
+       the properties of the object will be named (key) for the class and a boolean (value) 
+       you can pass in several object. Or you could pass in a function that deals with the object-->
+       
+      <!-- <div> [class.strikethrough]="product.discount > 0"    Another way to bind this is Class binding-->
       {{ product.price | currency : "USD" }}
     </div>
     <div *ngIf="product.discount > 0" class="discount">
