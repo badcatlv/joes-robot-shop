@@ -1,5 +1,5 @@
 <div class="container">
-  <form #signInFor="ngForm" class="form" (ngSubmit)="signIn()">
+  <form #signInForm="ngForm" class="form" (ngSubmit)="signIn()">
     <img class="logo" src="/assets/images/logo.png" />
     <div class="sign-in">Sign In</div>
     <div class="sub-text">to acquire awesome bots</div>
@@ -26,7 +26,7 @@
     <em class = "error" *ngIf="password.invalid && password.touched">
       Password is required </em>
     <div class="buttons">
-      <button type="submit" [disabled]="signInFor.form.invalid" class="button cta">
+      <button type="submit" [disabled]="signInForm.form.invalid" class="button cta">
         Sign In
       </button>
     </div>
